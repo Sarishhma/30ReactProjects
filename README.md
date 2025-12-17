@@ -1,1 +1,1 @@
-a setup for creating web app with vite
+Trying to complete thirty mini project in atleast 30 days for making my base better 
