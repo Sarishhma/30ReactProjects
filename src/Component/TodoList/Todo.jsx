@@ -1,12 +1,16 @@
-import { list } from 'postcss'
-import React, { useState } from 'react'
+
+import React, { useEffect, useState } from 'react'
 
 export default function Todo() {
     const [input , setInput]= useState('')
         const [desc , setdesc]= useState('')
 
 
-    const [lists,setList]=useState([
+    const [lists,setList]=useState(()=>{
+        const savedTodos = localStorage.getItem('Todos')
+        return savedTodos
+        ? JSON.parse(savedTodos) :
+      [
         {
             id:1,
             task:'exercise',
@@ -26,16 +30,20 @@ export default function Todo() {
             description:"eat healty food and be on balanced diet"
 
         }
-    ])
+    ]})
+    useEffect(()=>{
+        localStorage.setItem('Todos',JSON.stringify(lists))
+    },[lists])
+
 const handleAddTask=()=>{
     if (input.trim()===""|| desc===""){
         alert('add task and desc')
         return;
     }
     const newtask ={
-        id: lists.length +1,
+        id: Date.now(),
         task : input,
-        descriptio: desc
+        description: desc,
     }
     setList([...lists,newtask])
     setInput('')

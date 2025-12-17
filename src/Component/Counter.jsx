@@ -9,7 +9,7 @@ export default function Counter() {
     }
    }
   return (
-    <div>
+    <div className='text-black'>
       <h1>counter app</h1>
       <p>{count}</p>
       <button onClick={()=>setCount(count+1)}>+</button>
