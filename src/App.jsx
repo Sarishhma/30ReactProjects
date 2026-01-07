@@ -6,6 +6,7 @@ import Calculator from "./Component/Calculator/Calculator";
 import Digi from "./Component/DigitalClock/Digi";
 import Quote from "./Component/Quotegen/Quote";
 import Pass from "./Component/passwordGen/pass";
+import Weather from "./Component/WeatherApp/Weather";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                   <Route path="/Digi" element={<Digi />} />
                                     <Route path="/quote" element={<Quote />} />
                                      <Route path="/pass" element={<Pass/>} />
+                                     <Route path="/weather" element={<Weather/>} />
       </Routes>
       </div>
    
