@@ -8,6 +8,8 @@ import Quote from "./Component/Quotegen/Quote";
 import Pass from "./Component/passwordGen/pass";
 import Weather from "./Component/WeatherApp/Weather";
 import Recipe from "./Component/Recipe/Recipe";
+import Expense from "./Component/Expense/ExpenseForm";
+import Expensepage from "./Pages/Expensepage";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
                                      <Route path="/pass" element={<Pass/>} />
                                      <Route path="/weather" element={<Weather/>} />
                                       <Route path="/recipe" element={<Recipe/>} />
+                                       <Route path="/expense" element={<Expensepage/>} />
       </Routes>
       </div>
    
