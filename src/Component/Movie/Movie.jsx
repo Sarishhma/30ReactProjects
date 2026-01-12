@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 
 export default function Movie() {
@@ -8,7 +9,9 @@ export default function Movie() {
   const [totalPages,setTotalPages]=useState(1);
   const [loading,setloading]=useState(false);
 const [search,setsearch]=useState('');
-const[issearch,setissearch]=useState('')
+const[issearch,setissearch]=useState('');
+
+const[suggestions,setsuggestions]=useState([])
   const API_KEY = import.meta.env.VITE_MOVIE;
   
     const fetchMovies = async (pageNumber = 1,queryText="") => {
@@ -45,12 +48,42 @@ useEffect(() => {
   const handlesearch=()=>{
     setissearch(true);
     fetchMovies(1,search);
+    setsuggestions([])
   }
   const handlereset=()=>{
     setissearch(false);
     setsearch("")
     fetchMovies(1,"")
+    setsuggestions([])
   }
+  useEffect(()=>{
+    if(!search.trim()){
+      setsuggestions([])
+      return;
+    }
+    
+
+  const timeOut = setTimeout(async() => {
+    try{
+      const res= await axios.get("https://api.themoviedb.org/3/search/movie",
+      {
+        params:{
+          api_key:API_KEY,
+          query:search,
+
+        }
+      });
+      setsuggestions(res.data.results.slice(0,6));
+    }catch(err){
+  console.error(err.message)
+}
+    
+  }, 300);
+  return()=>clearTimeout(timeOut)
+
+
+
+  },[search])
 
 
  
@@ -58,6 +91,20 @@ useEffect(() => {
   return (
     <div>
       <input type="text" placeholder="search for movies" value={search} onChange={(e)=>setsearch(e.target.value)}/>
+      {/* dropdown */}
+      {suggestions.length > 0 &&(
+        <div>
+          {
+            suggestions.map((m)=>(
+              <div key={m.id} onClick={()=>{setsearch(m.title); setsuggestions([]);setissearch(true);fetchMovies(1,movies.title)}}>
+                <img src={`https://image.tmdb.org/t/p/w200${m.poster_path}`} alt={m.title} />
+                {m.title }
+              </div>
+
+            ))
+          }
+        </div>
+      )}
       <button onClick={handlesearch}>Search</button>
       {issearch && <button onClick={handlereset}>Reset</button> }
       {error && <div>{error}</div> }
