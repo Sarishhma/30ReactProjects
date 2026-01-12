@@ -10,7 +10,7 @@ export default function Movie() {
 const [search,setsearch]=useState('');
 const[issearch,setissearch]=useState('')
   const API_KEY = import.meta.env.VITE_MOVIE;
-
+  
     const fetchMovies = async (pageNumber = 1,queryText="") => {
       setloading(true);
       try {
@@ -25,7 +25,7 @@ const[issearch,setissearch]=useState('')
             },
           }
         );
-        console.log(res.data); 
+       
         setMovies(res.data.results); 
         setTotalPages(res.data.total_pages)
         setpage(pageNumber)
@@ -38,7 +38,7 @@ const[issearch,setissearch]=useState('')
       }
     };
 
-  useEffect(() => {
+useEffect(() => {
     fetchMovies(page,issearch ? search:"");
   }, [page]);
 

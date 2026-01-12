@@ -10,6 +10,7 @@ import Weather from "./Component/WeatherApp/Weather";
 import Recipe from "./Component/Recipe/Recipe";
 import Expensepage from "./Pages/Expensepage";
 import Movie from "./Component/Movie/movie";
+import Test from "./Component/Test/Test";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                                       <Route path="/recipe" element={<Recipe/>} />
                                        <Route path="/expense" element={<Expensepage/>} />
                                          <Route path="/movie" element={<Movie/>} />
+                                         <Route path="/test" element={<Test/>} />
       </Routes>
       </div>
    
