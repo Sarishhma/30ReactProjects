@@ -11,6 +11,7 @@ import Recipe from "./Component/Recipe/Recipe";
 import Expensepage from "./Pages/Expensepage";
 import Movie from "./Component/Movie/movie";
 import Test from "./Component/Test/Test";
+import QuizApp from "./Component/QuizApp/QuizApp";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
                                        <Route path="/expense" element={<Expensepage/>} />
                                          <Route path="/movie" element={<Movie/>} />
                                          <Route path="/test" element={<Test/>} />
+                                         <Route path="/quiz" element={<QuizApp/>} />
       </Routes>
       </div>
    
