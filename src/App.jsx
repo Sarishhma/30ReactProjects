@@ -1,4 +1,4 @@
-import {  Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Counter from "./Component/Counter";
 import Todo from "./Component/TodoList/Todo";
 import "./App.css";
@@ -12,27 +12,29 @@ import Expensepage from "./Pages/Expensepage";
 import Movie from "./Component/Movie/movie";
 import Test from "./Component/Test/Test";
 import QuizApp from "./Component/QuizApp/QuizApp";
+import Note from "./Component/NoteApp/Note";
 
 function App() {
   return (
-   <div >
-    
+    <div >
+
       <Routes>
         <Route path="/" element={<Counter />} />
         <Route path="/todo" element={<Todo />} />
-         <Route path="/calculator" element={<Calculator />} />
-                  <Route path="/Digi" element={<Digi />} />
-                                    <Route path="/quote" element={<Quote />} />
-                                     <Route path="/pass" element={<Pass/>} />
-                                     <Route path="/weather" element={<Weather/>} />
-                                      <Route path="/recipe" element={<Recipe/>} />
-                                       <Route path="/expense" element={<Expensepage/>} />
-                                         <Route path="/movie" element={<Movie/>} />
-                                         <Route path="/test" element={<Test/>} />
-                                         <Route path="/quiz" element={<QuizApp/>} />
+        <Route path="/calculator" element={<Calculator />} />
+        <Route path="/Digi" element={<Digi />} />
+        <Route path="/quote" element={<Quote />} />
+        <Route path="/pass" element={<Pass />} />
+        <Route path="/weather" element={<Weather />} />
+        <Route path="/recipe" element={<Recipe />} />
+        <Route path="/expense" element={<Expensepage />} />
+        <Route path="/movie" element={<Movie />} />
+        <Route path="/test" element={<Test />} />
+        <Route path="/quiz" element={<QuizApp />} />
+        <Route path="/note" element={<Note />} />
       </Routes>
-      </div>
-   
+    </div>
+
   );
 }
 
