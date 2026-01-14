@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Counter from "./Component/Counter";
 import Todo from "./Component/TodoList/Todo";
 import "./App.css";
@@ -13,8 +13,27 @@ import Movie from "./Component/Movie/movie";
 import Test from "./Component/Test/Test";
 import QuizApp from "./Component/QuizApp/QuizApp";
 import Note from "./Component/NoteApp/Note";
+import Ecommerce from "./Component/Ecommerce/Ecommerce";
+import Cartpage from "./Component/Ecommerce/Cartpage";
+import { useEffect, useState } from "react";
 
 function App() {
+      const [cart,setCart]=useState(()=>{
+          const savedcart = localStorage.getItem('cart')
+          return savedcart ? JSON.parse(savedcart):[];
+        
+        })
+        
+        useEffect(()=>{
+              localStorage.setItem('cart',JSON.stringify(cart))
+
+        },[cart])
+    
+    const navigate = useNavigate('')
+          const addtocart = (products)=>{
+            setCart([...cart,products])
+            navigate('/cartpage')
+        }
   return (
     <div >
 
@@ -32,6 +51,8 @@ function App() {
         <Route path="/test" element={<Test />} />
         <Route path="/quiz" element={<QuizApp />} />
         <Route path="/note" element={<Note />} />
+        <Route path="/ecommerce" element={<Ecommerce addtocart={addtocart} cart={cart}/>} />
+        <Route path="/cartpage" element={<Cartpage cart={cart}/>} />
       </Routes>
     </div>
 
