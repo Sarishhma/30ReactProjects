@@ -18,7 +18,8 @@ import Cartpage from "./Component/Ecommerce/Cartpage";
 import { useEffect, useState } from "react";
 import Post from "./Component/Blog/Post";
 import Blog from "./Component/Blog/Blog";
-import Github from "./Component/Blog/Github/Github";
+import Github from "./Component/Github/Github";
+import ChatUI from "./Component/ChatUI/ChatUI";
 
 function App() {
       const [cart,setCart]=useState(()=>{
@@ -58,6 +59,7 @@ function App() {
         <Route path="/cartpage" element={<Cartpage cart={cart}/>} />
         <Route path="/blog" element={<Blog/>} />
          <Route path="/github" element={<Github/>} />
+         <Route path="/chatui" element={<ChatUI/>} />
       
       </Routes>
     </div>
