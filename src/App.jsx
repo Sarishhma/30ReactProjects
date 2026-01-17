@@ -18,6 +18,7 @@ import Cartpage from "./Component/Ecommerce/Cartpage";
 import { useEffect, useState } from "react";
 import Post from "./Component/Blog/Post";
 import Blog from "./Component/Blog/Blog";
+import Github from "./Component/Blog/Github/Github";
 
 function App() {
       const [cart,setCart]=useState(()=>{
@@ -56,6 +57,7 @@ function App() {
         <Route path="/ecommerce" element={<Ecommerce addtocart={addtocart} cart={cart}/>} />
         <Route path="/cartpage" element={<Cartpage cart={cart}/>} />
         <Route path="/blog" element={<Blog/>} />
+         <Route path="/github" element={<Github/>} />
       
       </Routes>
     </div>
