@@ -16,6 +16,8 @@ import Note from "./Component/NoteApp/Note";
 import Ecommerce from "./Component/Ecommerce/Ecommerce";
 import Cartpage from "./Component/Ecommerce/Cartpage";
 import { useEffect, useState } from "react";
+import Post from "./Component/Blog/Post";
+import Blog from "./Component/Blog/Blog";
 
 function App() {
       const [cart,setCart]=useState(()=>{
@@ -53,6 +55,8 @@ function App() {
         <Route path="/note" element={<Note />} />
         <Route path="/ecommerce" element={<Ecommerce addtocart={addtocart} cart={cart}/>} />
         <Route path="/cartpage" element={<Cartpage cart={cart}/>} />
+        <Route path="/blog" element={<Blog/>} />
+      
       </Routes>
     </div>
 
