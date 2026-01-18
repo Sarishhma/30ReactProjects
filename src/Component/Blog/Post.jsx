@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BlogComment from "./BlogComment";
+import { comment } from "postcss";
 
 export default function Post({ posts,setPosts }) {
   const [commentText,setcommentText]= useState({});
@@ -20,6 +21,20 @@ setPosts(
   ))
 setcommentText({...commentText,[postId]:''})
   }
+  const DeleteComments = (postId, commentId) => {
+    setPosts(
+      posts.map((post) =>
+        post.id === postId
+          ? {
+              ...post,
+              comments: post.comments.filter(
+                (comment) => comment.id !== commentId
+              ),
+            }
+          : post
+      )
+    );
+  };
   return (
     
     <div>
@@ -33,10 +48,16 @@ setcommentText({...commentText,[postId]:''})
 
           <h4>Comments:</h4>
           {(post.comments || []).map((comment) => (
-            <BlogComment key={comment.id} comment={comment} />
+            <div>
+              <BlogComment key={comment.id} comment={comment} />
+              <button onClick={()=>DeleteComments(post.id,comment.id)}>Delete</button>
+            </div>
+            
           ))}
+          
           <input type="text" placeholder="enter the comment" value={commentText[post.id] || ""} onChange={(e)=>setcommentText({...commentText,[post.id]:e.target.value})}/>
           <button onClick={()=>AddComments(post.id)}>Add a comment</button>
+         
         </div>
       ))}
     </div>
