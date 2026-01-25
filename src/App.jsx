@@ -20,6 +20,7 @@ import Post from "./Component/Blog/Post";
 import Blog from "./Component/Blog/Blog";
 import Github from "./Component/Github/Github";
 import ChatUI from "./Component/ChatUI/ChatUI";
+import Job from "./Component/Jobfilter/Job";
 
 function App() {
       const [cart,setCart]=useState(()=>{
@@ -60,6 +61,7 @@ function App() {
         <Route path="/blog" element={<Blog/>} />
          <Route path="/github" element={<Github/>} />
          <Route path="/chatui" element={<ChatUI/>} />
+          <Route path="/job" element={<Job/>} />
       
       </Routes>
     </div>
