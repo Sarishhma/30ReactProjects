@@ -21,6 +21,8 @@ import Blog from "./Component/Blog/Blog";
 import Github from "./Component/Github/Github";
 import ChatUI from "./Component/ChatUI/ChatUI";
 import Job from "./Component/Jobfilter/Job";
+import Music from "./Component/Music/Music";
+import Drawing from "./Component/Drawing/Draw";
 
 function App() {
       const [cart,setCart]=useState(()=>{
@@ -62,6 +64,8 @@ function App() {
          <Route path="/github" element={<Github/>} />
          <Route path="/chatui" element={<ChatUI/>} />
           <Route path="/job" element={<Job/>} />
+          <Route path="/music" element={<Music/>} />
+          <Route path="/draw" element={<Drawing/>} />
       
       </Routes>
     </div>
